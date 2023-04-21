@@ -1,0 +1,51 @@
+@mixin vector-bg-with-fallback( $name, $height, $width ) {
+  background-image: url('#{$asset-path}#{$name}.png');
+  background-image: none, url('#{$asset-path}#{$name}.svg');
+  height: $height;
+  width: $width;
+}
+
+@mixin background-image( $name, $height, $width ) {
+  background-image: url('#{$asset-path}#{$name}.png');
+  height: $height;
+  width: $width;
+}
+
+@mixin text-hide {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  overflow:hidden;
+  text-indent:-9000px;
+}
+
+@mixin hide-text {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  overflow:hidden;
+  text-indent:-9000px;
+}
+
+@mixin clearfix(){
+  &:before,
+  &:after{
+    content: " ";
+    display: table;
+  }
+
+  &:after{
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden;
+  }
+  &{
+    *zoom: 1;
+  }
+}
+
+@function pt2px($value) {
+  @return 0px + calc($value * 1.3333);
+}

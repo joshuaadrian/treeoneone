@@ -1,0 +1,318 @@
+$gutter : 60px;
+$breakpoint-up : 992px;
+$breakpoint-down : 991px;
+
+.wp-block-columns {
+
+  @media(max-width:$breakpoint-down) {
+    display: block;
+    @include clearfix();
+  }
+
+  &.columns-xs-break {
+
+    display: flex !important;
+
+    @media(max-width: 499px) {
+      display: block !important;
+    }
+
+    .wp-block-column {
+
+      flex-basis: 0 !important;
+      flex-grow: 1 !important;
+
+      &:not(:first-child) {
+
+        @media(max-width: 499px) {
+          margin-left:30px !important;
+
+        }
+
+        @media(max-width: 499px) {
+          margin-left:0px !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  &.columns-sm-break {
+
+    display: flex !important;
+
+    @media(max-width: 767px) {
+      display: block !important;
+    }
+
+    .wp-block-column {
+
+      flex-basis: 0 !important;
+      flex-grow: 1 !important;
+
+      &:not(:first-child) {
+
+        @media(max-width: 499px) {
+          margin-left:30px !important;
+
+        }
+
+        @media(max-width: 499px) {
+          margin-left:0px !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  &.columns-md-break {
+
+    display: flex !important;
+
+    @media(max-width: 991px) {
+      display: block !important;
+    }
+
+    .wp-block-column {
+
+      flex-basis: 0 !important;
+      flex-grow: 1 !important;
+
+      &:not(:first-child) {
+
+        @media(max-width: 499px) {
+          margin-left:30px !important;
+
+        }
+
+        @media(max-width: 499px) {
+          margin-left:0px !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  &.columns-lg-break {
+
+    display: flex !important;
+
+    @media(max-width: 1199px) {
+      display: block !important;
+    }
+
+    .wp-block-column {
+
+      flex-basis: 0 !important;
+      flex-grow: 1 !important;
+
+      &:not(:first-child) {
+
+        @media(max-width: 499px) {
+          margin-left:30px !important;
+
+        }
+
+        @media(max-width: 499px) {
+          margin-left:0px !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  .wp-block-column:nth-child(2n) {
+    @media(max-width:$breakpoint-down) {
+      margin-left:0;
+    }
+  }
+
+  .wp-block-column:not(:first-child) {
+
+    @media(min-width:$breakpoint-up) {
+      margin-left:$gutter;
+    }
+
+  }
+
+  &.gutter-30 {
+
+    .wp-block-column:not(:first-child) {
+
+      @media(min-width:$breakpoint-up) {
+        margin-left:30px;
+      }
+
+    }
+
+  }
+
+  &.gutter-45 {
+
+    .wp-block-column:not(:first-child) {
+
+      @media(min-width:$breakpoint-up) {
+        margin-left:45px;
+      }
+
+    }
+
+  }
+
+  &.gutter-60 {
+
+    .wp-block-column:not(:first-child) {
+
+      @media(min-width:$breakpoint-up) {
+        margin-left:60px;
+      }
+
+    }
+
+  }
+
+  .wp-block-column {
+
+    position: relative;
+
+    @media(max-width:$breakpoint-down) {
+      margin-left:0 !important;
+    }
+
+    &.border-column {
+      padding:45px;
+      border:1px solid #c4c6cb;
+
+      > *:first-child {
+        margin-top:0;
+      }
+
+      > *:last-child {
+        margin-bottom:0;
+      }
+
+    }
+
+
+      &.border-left {
+
+          @media(min-width:$breakpoint-up) {
+            border-left:1px solid $gray-300;
+            padding-left:30px;
+          }
+
+          @media(min-width:$screen-xl-min) {
+            padding-left:60px;
+          }
+
+      }
+
+  }
+
+  &.justify-center {
+
+    justify-content: center;
+
+    > * {
+      @media(min-width:$breakpoint-up) {
+        margin-left:15px;
+        margin-right:15px;
+      }
+    }
+
+  }
+
+  &.space-around {
+
+    justify-content: space-around;
+
+    .wp-block-column {
+      flex: 0 1 auto;
+    }
+
+    > * {
+      @media(min-width:$breakpoint-up) {
+        margin-left:15px;
+        margin-right:15px;
+      }
+    }
+
+  }
+
+  &.space-between {
+
+    justify-content: space-between;
+
+    .wp-block-column {
+      flex: 0 1 auto;
+    }
+
+    > * {
+      @media(min-width:$breakpoint-up) {
+        margin-left:15px;
+        margin-right:15px;
+      }
+    }
+
+  }
+
+  &.align-center {
+    align-items: center !important;
+    align-content:center !important;
+  }
+
+  .wp-block-column {
+
+    @media(max-width:767px) {
+      flex-basis:100% !important;
+      margin-left:0 !important;
+    }
+
+    &.order-1-mobile {
+      @media(max-width:767px) {
+        order:1;
+      }
+    }
+
+    &.order-2-mobile {
+      @media(max-width:767px) {
+        order:2;
+      }
+    }
+
+    &.order-3-mobile {
+      @media(max-width:767px) {
+        order:3;
+      }
+    }
+
+    &.flex-0 {
+      flex:0 0 auto !important;
+    }
+
+    &.flex-1 {
+      flex:1 !important;
+    }
+
+    &.flex {
+
+      display: flex;
+
+      &.align-bottom {
+        justify-content: flex-end;
+        flex-flow:column wrap;
+      }
+
+    }
+
+  }
+
+}

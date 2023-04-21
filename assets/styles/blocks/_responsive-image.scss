@@ -1,0 +1,53 @@
+.responsive-image {
+
+	a {
+		display: inline-block;
+	}
+	&.right {
+		img {
+			margin-left: auto;
+			margin-right: 0;
+			display: block;
+		}
+
+		a {
+			margin-left: auto;
+			margin-right: 0;
+			display: block;
+		}
+	}
+
+	&.center {
+
+		img {
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+		}
+
+		a {
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+		}
+
+	}
+
+}
+
+.responsive-image--caption {
+
+	margin:15px 0 0;
+
+	p {
+		font-size:15px;
+		text-align: right;
+		color:#999;
+		text-transform: uppercase;
+	}
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
+
+}

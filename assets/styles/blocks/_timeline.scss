@@ -1,0 +1,187 @@
+.timeline {
+
+}
+
+.timeline--items {
+
+	position: relative;
+
+	&:after {
+
+		content:'';
+		position:absolute;
+		top:18px;
+		bottom:0;
+		left:1px;
+		width:1px;
+		background-color:$green-400;
+
+		@media(min-width:$screen-md-min) {
+			left:50%;
+		}
+
+	}
+
+}
+
+.timeline--item-year {
+
+	width:100%;
+
+	@media(min-width:$screen-md-min) {
+		width:50%;
+		margin:0 0 0 50%;
+	}
+
+	h2 {
+		line-height: 1;
+		font-size:42px;
+		margin-bottom:0px;
+		margin-top:0;
+		margin-left:30px;
+		position: relative;
+		color:$green-400;
+
+		@media(min-width:$screen-md-min) {
+			margin-bottom:20px;
+		}
+
+		&:before {
+			content:'';
+			position: absolute;
+			left:-31px;
+			top:18px;
+			height:1px;
+			width:20px;
+			background:$green-400;
+
+			@media(min-width:$screen-md-min) {
+
+			}
+		}
+	}
+
+	+ .timeline--item-year {
+
+		h2 {
+
+			margin-top:40px;
+			
+
+			@media(min-width:$screen-md-min) {
+				margin-top:0px;
+			}
+
+		}
+
+	}
+	
+	&.timeline--item-year-left {
+
+		@media(min-width:$screen-md-min) {
+			margin:0 50% 0 0;
+			text-align: right;
+		}
+
+		h2 {
+
+			@media(min-width:$screen-md-min) {
+				margin-right:30px;
+				margin-left:0;
+			}
+
+			&:before {
+
+				@media(min-width:$screen-md-min) {
+					left:auto;
+					right:-31px;
+				}
+
+			}
+		}
+
+		.timeline-item--logo {
+
+			@media(min-width:$screen-md-min) {
+				margin-left:auto;
+			}
+
+		}
+
+		.timeline-item--case-studies {
+
+			@media(min-width:$screen-md-min) {
+				justify-content: flex-end;
+			}
+
+		}
+
+	}
+
+	.timeline--item-year-wrap {
+		padding:0 30px;
+	}
+
+}
+
+
+
+.timeline-item {
+
+	margin-top:20px;
+
+	@media(min-width:$screen-md-min) {
+		//margin-top:30px;
+	}
+
+	+ .timeline-item {
+		margin-top:15px;
+	}
+
+	h4 {
+		margin:0 0 8px;
+		font-size:24px;
+		color:$green-400;
+		font-weight: 300;
+	}
+
+	p {
+		font-size:16px;
+		margin:10px 0 0;
+	}
+
+	&--case-studies {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		margin:15px 0 0;
+		width:100%;
+		gap:30px;
+	}
+
+	&--case-study {
+
+		flex:1 0 calc(33.333% - 30px);
+		max-width: calc(33.333% - 30px);
+		position: relative;
+
+		a {
+			color:$green-400;
+			text-align: center;
+			text-decoration: underline;
+			margin:10px 0 0;
+			display: block;
+			font-weight: 600;
+			font-size: 16px;
+		}
+
+		div {
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center bottom;
+			height:0;
+			padding-top:40%;
+		}
+
+	}
+}

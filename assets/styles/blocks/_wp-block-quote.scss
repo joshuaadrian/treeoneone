@@ -1,0 +1,59 @@
+.wp-block-quote {
+
+  max-width: calc(100% - 160px);
+  margin:0 auto;
+  border:none;
+
+  @media(min-width:$screen-xl-min) {
+    max-width: 9999px;
+  }
+
+  p {
+    display: inline;
+    position: relative;
+    font-size: 70px;
+    margin:0 0 20px;
+    line-height: 1.05;
+    font-weight:700;
+    font-family: $font-family-headings;
+
+    &:before {
+      content:'\201C';
+      position: absolute;
+      top:0;
+      right:100%;
+    }
+
+    strong {
+      color:$blue-400;
+      font-weight:700;
+    }
+
+  }
+
+  cite {
+
+    padding:0 0 0 60px;
+    position: relative;
+    top:-12px;
+    white-space: nowrap;
+
+    &:before {
+      content:'\2014';
+      margin:0 8px 0 0;
+    }
+
+    &:after {
+      content:'\201D';
+      position: absolute;
+      top:-18px;
+      left:-10px;
+      font-size: 70px;
+      line-height: 1.05;
+      font-weight:700;
+      font-family: $font-family-headings;
+    }
+
+  }
+
+}

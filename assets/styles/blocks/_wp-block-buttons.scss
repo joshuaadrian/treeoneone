@@ -1,0 +1,310 @@
+.wp-block-buttons {
+
+  &.is-content-justification-right {
+
+    .wp-block-button + .wp-block-button {
+      margin-left:15px;
+    }
+
+  }
+
+  &.is-content-justification-center {
+
+    .wp-block-button + .wp-block-button {
+      margin-left:15px;
+    }
+    
+  }
+
+  &.is-layout-flex {
+
+  }
+
+  .wp-block-button + .wp-block-button {
+
+  }
+
+}
+
+.wp-block-button {
+
+  &.icon-leaves {
+
+    .wp-block-button__link {
+
+      &:hover {
+
+        span {
+          background-image:url(../images/icon-leaves-green-400.svg);
+        }
+
+      }
+
+      span {
+        padding-left:30px;
+        background:url(../images/icon-leaves.svg) center left / 20px auto no-repeat transparent;
+      }
+
+    }
+
+  }
+
+  &.icon-hand {
+
+    .wp-block-button__link {
+
+      &:hover {
+
+        span {
+          background-image:url(../images/icon-hand-green-400.svg);
+        }
+
+      }
+
+      span {
+        padding-left:34px;
+        background:url(../images/icon-hand.svg) center left / 24px auto no-repeat transparent;
+      }
+
+    }
+    
+  }
+
+  .wp-block-button__link:not(.has-text-color) {
+    color: $white !important;
+
+    &:hover {
+      color:$white !important;
+    }
+  }
+
+  .wp-block-button__link:not(.has-background) {
+
+    background-color:rgba($green-400,0) !important;
+    border-color: $green-400 !important;
+
+    &:hover,
+    &:focus {
+
+      background-color:rgba($green-400,1) !important;
+      border-color: $green-400 !important;
+
+    }
+
+  }
+
+  .wp-block-button__link {
+
+    position: relative;
+    overflow: hidden;
+
+    &:hover,
+    &:focus {
+
+      &:before {
+        transition-delay: 0;
+      }
+
+    }
+
+    &:before {
+      content:'';
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: -3px;
+      width: calc(100% + 6px);
+      height: calc(100% + 6px);
+      transition: all .5s ease;
+    }
+
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+  }
+
+  &.is-style-fill .wp-block-button__link,
+  &:not(.is-style-outline) .wp-block-button__link {
+
+    &:before {
+      border-radius: 0 0 0 0;
+      transform: translateY(0) scaleY(1);
+    }
+
+    &:hover,
+    &:focus {
+
+      &:before {
+        border-radius: 100% 100% 0 0;
+        transform: translateY(100%) scaleY(0.5);
+        transition-delay: 0;
+      }
+
+    }
+
+    &:not(.has-background) {
+
+      background-color:rgba($green-400,0) !important;
+      border-color: rgba($green-400,1) !important;
+
+      &:hover,
+      &:focus {
+        background-color:rgba($green-400,0) !important;
+        border-color: rgba($green-400,1) !important;
+        color:$green-400 !important;
+      }
+
+      &:before {
+        background: $green-400;
+      }
+
+    }
+
+  }
+
+  &.is-style-outline .wp-block-button__link {
+
+    border-width:1px;
+    overflow: hidden;
+
+    &:before {
+      border-radius: 100% 100% 0 0;
+      transform: translateY(100%) scaleY(.5);
+    }
+
+    &:hover,
+    &:focus {
+
+      &:before {
+        border-radius: 0 0 0 0;
+        transform: translateY(0%) scaleY(1);
+        transition-delay: 0;
+      }
+
+    }
+
+    &:not(.has-background) {
+
+  	  border-color: rgba($green-400,1) !important;
+      background-color:rgba($green-400,0) !important;
+
+      &:hover,
+  		&:focus {
+
+        border-color: rgba($green-400,1) !important;
+        background-color:rgba($green-400,0) !important;
+        color:$white !important;
+  		}
+
+      &:before {
+        background: $green-400;
+      }
+
+    }
+
+  }
+
+  > .wp-block-button__link {
+
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    padding:12px 40px;
+    transition: all 0.2s ease-in-out;
+    border-radius:5px !important;
+    position: relative;
+    font-weight: 600;
+    border-style:solid;
+    border-width:1px;
+    text-align: center;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color:transparent;
+      text-decoration: none;
+  	}
+
+  }
+
+	@for $i from 1 through length($colors) {
+
+		$color       : nth( nth( $colors, $i ), 2 );
+		$color_name  : nth( nth( $colors, $i ), 1 );
+		$color_hover : nth( nth($colors-hover, $i), 2 );
+
+		// &.has-#{$color_name}-color {
+		// 	color: $color !important;
+		// }
+    //
+		// &.has-#{$color_name}-color:hover,
+		// &.has-#{$color_name}-color:focus {
+    //   color: $color_hover !important;
+		// }
+    //
+		// &.has-#{$color_name}-background-color {
+    //   background-color:rgba($color,1) !important;
+		// }
+    //
+		// &.has-#{$color_name}-background-color:hover,
+		// &.has-#{$color_name}-background-color:focus {
+    //   background-color:rgba($color_hover,1) !important;
+		// }
+
+    &.is-style-fill .wp-block-button__link,
+    &:not(.is-style-outline) .wp-block-button__link {
+
+      &.has-#{$color_name}-color:hover,
+  		&.has-#{$color_name}-color:focus {
+        color: $white !important;
+  		}
+
+      &.has-#{$color_name}-background-color {
+        background-color:rgba($color,0) !important;
+    	  border-color: rgba($color,1) !important;
+
+        &:before {
+          background-color:rgba($color,1) !important;
+        }
+  		}
+
+      &.has-#{$color_name}-background-color:hover,
+  		&.has-#{$color_name}-background-color:focus {
+        //background-color:rgba($color_hover,1) !important;
+        color: $color !important;
+    	  border-color: rgba($color,1) !important;
+  		}
+
+    }
+
+    &.is-style-outline .wp-block-button__link {
+
+      &.has-#{$color_name}-background-color {
+
+        background-color:rgba($color,0) !important;
+    	  border-color: $color !important;
+
+        &:before {
+          background-color:rgba($color,1) !important;
+        }
+
+  		}
+
+  		&.has-#{$color_name}-background-color:hover,
+  		&.has-#{$color_name}-background-color:focus {
+        background-color:rgba($color_hover,0) !important;
+        color:$white !important;
+  		}
+
+      &.has-white-background-color:hover,
+      &.has-white-background-color:focus {
+        color:$black !important;
+      }
+
+    }
+
+	}
+
+}

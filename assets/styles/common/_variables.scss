@@ -1,0 +1,165 @@
+// https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+
+// Glyphicons font path
+$icon-font-path:        "../fonts/";
+
+$screen-xxxs-min: 0;
+$screen-xxs-min: 320px;
+$screen-xs-min: 568px;
+$screen-sm-min: 667px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1200px;
+$screen-xxl-min: 1440px;
+$screen-xxxl-min: 1600px;
+
+$screen-xxxs-max: 0;
+$screen-xxs-max: 319px;
+$screen-xs-max: 567px;
+$screen-sm-max: 666px;
+$screen-md-max: 767px;
+$screen-lg-max: 991px;
+$screen-xl-max: 1199px;
+$screen-xxl-max: 1439px;
+$screen-xxxl-max: 1599px;
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns:              12;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         30px;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-sm-min;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
+
+// Grid settings
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+
+//== Colors
+$white       : #ffffff;
+$black       : #0C1B2E;
+$black       : #000000;
+$gray-100    : #f5f5f5;
+$gray-200    : #efeff0;
+$gray-300    : #A0A0A0;
+$gray-400    : #6c747a;
+$gray-500    : #2d3235;
+$gray-700    : #1E1E1E;
+$green-200   : #18e17a;
+$green-300   : #1ea962;
+$green-400   : #139754;
+$blue-100    : #f0f4f7;
+$blue-200    : #6cabdc;
+$blue-400    : #386b8a;
+
+$colors: (
+	'white'      : $white,
+	'black'      : $black,
+	'gray-100'   : $gray-100,
+	'gray-200'   : $gray-200,
+	'gray-300'   : $gray-300,
+	'gray-400'   : $gray-400,
+	'gray-500'   : $gray-500,
+	'gray-700'   : $gray-700,
+	'green-200'  : $green-200,
+	'green-300'  : $green-300,
+	'green-400'  : $green-400,
+	'blue-100'   : $blue-100,
+	'blue-200'   : $blue-200,
+	'blue-400'   : $blue-400
+);
+
+$colors-names: (
+	'white',
+	'black',
+	'gray-100',
+	'gray-200',
+	'gray-300',
+	'gray-400',
+	'gray-500',
+	'gray-700',
+	'green-200',
+	'green-300',
+	'green-400',
+	'blue-100',
+	'blue-200',
+	'blue-400'
+);
+
+$colors-hover: (
+	'white'     : darken($white,10%),
+	'black'     : darken($black,10%),
+	'gray-100'  : darken($gray-100,10%),
+	'gray-200'  : darken($gray-200,10%),
+	'gray-300'  : darken($gray-300,10%),
+	'gray-400'  : darken($gray-400,10%),
+	'gray-500'  : darken($gray-500,10%),
+	'gray-700'  : darken($gray-700,10%),
+	'green-200' : darken($green-200,10%),
+	'green-300' : darken($green-300,10%),
+	'green-400' : darken($green-400,10%),
+	'blue-100'  : darken($blue-100,10%),
+	'blue-200'  : darken($blue-200,10%),
+	'blue-400'  : darken($blue-200,10%)
+);
+
+$gradients : (
+	'green-400-to-green-200' : linear-gradient(135deg, rgba($green-400,1) 0%, rgba($green-200,1) 100%)
+);
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               $white;
+//** Global text color on `<body>`.
+$text-color:             $gray-500;
+
+//** Global textual link color.
+$link-color:            $gray-500;
+$link-decoration: underline;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      $gray-500;
+//** Link hover decoration.
+$link-hover-decoration: underline;
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+$font-family-headings     : "Albert Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif   : "Albert Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif        : Georgia, "Times New Roman", Times, serif;
+$font-family-monospace    : Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-base         : $font-family-sans-serif;
+$font-size-base           : calc(14px * 1.3333);
+$font-size-large          : ceil(($font-size-base * 1.25)); // ~18px
+$font-size-small          : ceil(($font-size-base * 0.85)); // ~12px
+$font-size-h1             : calc(46px * 1.3333); // ~36px
+$font-size-h1-line-height : calc(50px * 1.3333);
+$font-size-h2             : calc(32px * 1.3333); // ~36px
+$font-size-h2-line-height : calc(36px * 1.3333);
+$font-size-h3             : calc(28px * 1.3333); // ~36px
+$font-size-h3-line-height : calc(34px * 1.3333);
+$font-size-h4             : calc(24px * 1.3333); // ~36px
+$font-size-h4-line-height : calc(26px * 1.3333);
+$font-size-h5             : calc(18px * 1.3333); // ~36px
+$font-size-h5-line-height : calc(24px * 1.3333);
+$font-size-h6             : calc(14px * 1.3333); // ~36px
+$font-size-h6-line-height : calc(19px * 1.3333);
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit;
+$headings-font-weight:    400;
+$headings-line-height:    1.2;
+$headings-color:          inherit;

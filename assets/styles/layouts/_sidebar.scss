@@ -1,0 +1,91 @@
+.sidebar--posts {
+
+	margin:0 -15px;
+	background:url(../images/background-featured-symposium.png) bottom right no-repeat #2c2c2c;
+
+	@media(min-width:$screen-sm-min) {
+		height:100%;
+		margin:0;
+	}
+
+	.search-form {
+
+		@include clearfix;
+
+		label {
+
+			float:left;
+			width:80%;
+			margin:0;
+			height:56px;
+
+			span {
+				display:none;
+			}
+
+			input {
+				border:none;
+				display:block;
+				padding:5px 8px;
+				border:1px solid #cacaca;
+				color:#2c2c2c;
+				font-weight:400;
+				height:56px;
+			}
+
+		}
+
+		.search-submit {
+			float:left;
+			width:18%;
+			margin:0 0 0 2%;
+			background:$blue-400;
+			display:block;
+			border:none;
+			padding:0;
+			height:56px;
+
+			img {
+				margin:0 auto;
+				width:16px;
+				height:auto;
+			}
+		}
+
+	}
+
+}
+
+.sidebar--posts-widget {
+
+	margin:30px 0 0;
+	padding:0 30px 30px;
+	
+	&:first-child {
+
+		margin:0;
+
+		.sidebar--posts-widget-inner {
+			border-top:none;
+		}
+
+	}
+
+}
+
+.sidebar--posts-widget-inner {
+	padding:30px 0 0;
+	border-top:1px solid #666;
+
+	p {
+		line-height:1.4;
+		font-size:16px;
+		color:#acacac;
+	}
+}
+
+.sidebar--posts-widget-title {
+	margin:0 0 30px;
+	color:$blue-400;
+	font-weight:200;
+}
