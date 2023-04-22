@@ -34,10 +34,7 @@ mix.autoload({
 })
 .setPublicPath('dist')
 .js('assets/scripts/app.js', 'dist/scripts')
-.js('assets/scripts/admin.js', 'dist/scripts')
 .sass('assets/styles/app.scss', 'dist/styles')
-.sass('assets/styles/admin.scss', 'dist/styles')
-.sass('assets/styles/editor.scss', 'dist/styles')
 .version()
 .browserSync({
   proxy: {
