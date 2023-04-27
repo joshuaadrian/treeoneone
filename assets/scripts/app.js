@@ -27,16 +27,4 @@ jQuery(document).ready(function($) {
   require('./components/teamFilters');
   require('./components/selectric');
 
-  // Blocks
-  require('./blocks/accordion');
-  require('./blocks/content-box');
-  require('./blocks/interactive-graphic');
-  require('./blocks/link-list');
-  require('./blocks/location-grid');
-  require('./blocks/masthead');
-  require('./blocks/responsive-slider');
-  // require('./blocks/stats');
-  require('./blocks/tabs');
-  require('./blocks/wp-menu');
-
 });

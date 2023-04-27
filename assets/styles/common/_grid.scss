@@ -1,81 +1,52 @@
-/**
- * Columns
- *
- */
-@mixin columns( $columns, $wrapper_width: null, $grid_item_element: article ) {
+.group {
 
-	@if( $wrapper_width == null ) {
-		$wrapper_width: $grid-max-width;
+	display: flex;
+	flex-flow: row wrap;
+	padding:0 20px;
+	justify-content: center;
+
+	@media(min-width:$screen-md-min) {
+		padding:0 30px;
 	}
 
-	#{$grid_item_element} {
-		float: left;
-		margin-left: $grid-gutter / $wrapper_width * 100%;
-		width: ( ( $wrapper_width - $grid-gutter * ( $columns - 1 ) ) / $columns ) / $wrapper_width * 100%;
-
-		&:nth-of-type(#{$columns}n+1) {
-			clear: both;
-			margin-left: 0;
-		}
+	@media(min-width:$screen-lg-min) {
+		padding:0 40px;
 	}
 
-	@supports( grid-area: auto ) {
-		display: grid;
-		grid-column-gap: $grid-gutter;
-		grid-template-columns: repeat( $columns, 1fr );
+	@media(min-width:$screen-xl-min) {
+		padding:0 60px;
+	}
 
-		#{$grid_item_element} {
-			margin-left: 0;
-			width: 100%;
+	&.narrow {
+
+		.group--inner {
+			max-width:1100px;
 		}
 
-		header, nav, aside, footer {
-			grid-column: 1 / -1;
+	}
+
+	&.narrower {
+
+		.group--inner {
+			max-width:900px;
 		}
-	}
-}
 
-/**
- * Columns, Mobile
- *
- */
-@mixin columns-mobile( $columns, $wrapper_width: null, $grid_item_element: article ) {
-
-	@include media("<tablet") {
-		@include columns( $columns, $wrapper_width, $grid_item_element );
-	}
-}
-
-/**
- * Columns, Tablet
- *
- */
-@mixin columns-tablet( $columns, $wrapper_width: null, $grid_item_element: article ) {
-
-	@include media(">=tablet", "<medium") {
-		@include columns( $columns, $wrapper_width, $grid_item_element );
 	}
 
-}
+	&.narrowest {
 
-/**
- * Columns, Tablet Up
- *
- */
-@mixin columns-tablet-up( $columns, $wrapper_width: null, $grid_item_element: article ) {
+		.group--inner {
+			max-width:700px;
+		}
 
-	@include media(">=tablet") {
-		@include columns( $columns, $wrapper_width, $grid_item_element );
 	}
 
-}
-
-/**
- * Columns, Desktop
- *
- */
-@mixin columns-desktop( $columns, $wrapper_width: null, $grid_item_element: article ) {
-	@include media(">=medium") {
-		@include columns( $columns, $wrapper_width, $grid_item_element );
+	&--inner {
+		flex:1;
+		width:100%;
+		max-width: 1400px;
+		margin-left:auto;
+		margin-right:auto;
 	}
+
 }

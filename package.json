@@ -8,11 +8,9 @@
     "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "NODE_ENV=production webpack --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "postinstall": "npm run production",
-    "build": "NODE_ENV=production webpack --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "postinstall": "npm run production"
   },
   "devDependencies": {
-    "@popperjs/core": "^2.11.7",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.1",
     "autoprefixer": "^10.4.14",
@@ -20,7 +18,8 @@
     "browser-sync-webpack-plugin": "^2.3.0",
     "countup.js": "^2.6.0",
     "flickity": "^3.0.0",
-    "flickity-fade": "^2.0.0",
+    "flickity-as-nav-for": "^3.0.0",
+    "image-map-resizer": "^1.0.10",
     "isotope-cells-by-row": "^1.1.4",
     "isotope-layout": "^3.0.6",
     "isotope-masonry-horizontal": "^2.0.1",
@@ -34,7 +33,6 @@
     "postcss": "^8.4.23",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
-    "vanilla-lazyload": "^17.8.3",
-    "vue-template-compiler": "^2.7.14"
+    "vanilla-lazyload": "^17.8.3"
   }
 }

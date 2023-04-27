@@ -51,6 +51,7 @@ $gray-300    : #A0A0A0;
 $gray-400    : #6c747a;
 $gray-500    : #2d3235;
 $gray-700    : #1E1E1E;
+$green-100   : #e3faba;
 $green-200   : #18e17a;
 $green-300   : #1ea962;
 $green-400   : #139754;
@@ -67,6 +68,7 @@ $colors: (
 	'gray-400'   : $gray-400,
 	'gray-500'   : $gray-500,
 	'gray-700'   : $gray-700,
+	'green-100'  : $green-100,
 	'green-200'  : $green-200,
 	'green-300'  : $green-300,
 	'green-400'  : $green-400,
@@ -84,6 +86,7 @@ $colors-names: (
 	'gray-400',
 	'gray-500',
 	'gray-700',
+	'green-100',
 	'green-200',
 	'green-300',
 	'green-400',
@@ -101,6 +104,7 @@ $colors-hover: (
 	'gray-400'  : darken($gray-400,10%),
 	'gray-500'  : darken($gray-500,10%),
 	'gray-700'  : darken($gray-700,10%),
+	'green-100' : darken($green-100,10%),
 	'green-200' : darken($green-200,10%),
 	'green-300' : darken($green-300,10%),
 	'green-400' : darken($green-400,10%),
@@ -132,12 +136,12 @@ $link-hover-decoration: underline;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-$font-family-headings     : "Albert Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-sans-serif   : "Albert Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-headings     : "Barlow","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif   : "Barlow","Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif        : Georgia, "Times New Roman", Times, serif;
 $font-family-monospace    : Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base         : $font-family-sans-serif;
-$font-size-base           : calc(14px * 1.3333);
+$font-size-base           : calc(16px * 1.3333);
 $font-size-large          : ceil(($font-size-base * 1.25)); // ~18px
 $font-size-small          : ceil(($font-size-base * 0.85)); // ~12px
 $font-size-h1             : calc(46px * 1.3333); // ~36px
