@@ -4,8 +4,12 @@ form {
     color:$pink-400;
     display: block;
     font-family: $font-family-headings;
-    font-size:32px;
+    font-size:24px;
     margin:0 0 20px;
+
+    @media(min-width:$screen-sm-min) {
+      font-size:32px;
+    }
   }
 
   input, select {

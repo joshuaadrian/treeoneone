@@ -2956,8 +2956,13 @@ form label {
   color: #b24d81;
   display: block;
   font-family: "lisbeth-display", "Barlow", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 32px;
+  font-size: 24px;
   margin: 0 0 20px;
+}
+@media (min-width: 667px) {
+  form label {
+    font-size: 32px;
+  }
 }
 form input, form select {
   display: block;
@@ -3240,7 +3245,7 @@ form textarea {
   transition: all 0.2s ease-in-out;
   transform-origin: right bottom;
 }
-.too--form--close:hover {
+.too--form--close:hover, .too--form--close:active, .too--form--close:focus {
   text-decoration: none;
   font-size: 80px;
   transform: rotate(5deg);
@@ -3249,17 +3254,25 @@ form textarea {
 .too--form--container {
   display: flex;
   flex-flow: column wrap;
-  height: calc(100% - 60px);
-  width: calc(100% - 60px);
+  height: calc(100% - 40px);
+  width: calc(100% - 40px);
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 20px 0;
   opacity: 0;
   transition: 0.3s opacity 0s ease-in-out;
   border-radius: 30px;
-  margin: 30px;
+  margin: 20px;
   border: 3px solid #b24d81;
   background-color: #e3faba;
+}
+@media (min-width: 667px) {
+  .too--form--container {
+    padding: 30px 0;
+    height: calc(100% - 60px);
+    width: calc(100% - 60px);
+    margin: 30px;
+  }
 }
 body.is-showing-form {
   overflow: hidden;
@@ -3844,10 +3857,10 @@ body.is-showing-form .too--form--container {
   background: #b24d81;
 }
 .button > .button--link {
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
   display: inline-block;
-  padding: 12px 40px;
+  padding: 12px 25px;
   transition: all 0.2s ease-in-out;
   border-radius: 30px !important;
   position: relative;
@@ -3855,6 +3868,12 @@ body.is-showing-form .too--form--container {
   border-style: solid;
   border-width: 1px;
   text-align: center;
+}
+@media (min-width: 667px) {
+  .button > .button--link {
+    padding: 12px 40px;
+    font-size: 18px;
+  }
 }
 .button > .button--link:hover, .button > .button--link:focus, .button > .button--link:active {
   background-color: transparent;

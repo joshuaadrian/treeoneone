@@ -174,10 +174,10 @@
 
   > .button--link {
 
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: none;
     display: inline-block;
-    padding:12px 40px;
+    padding:12px 25px;
     transition: all 0.2s ease-in-out;
     border-radius:30px !important;
     position: relative;
@@ -185,6 +185,11 @@
     border-style:solid;
     border-width:1px;
     text-align: center;
+
+    @media(min-width:$screen-sm-min) {
+      padding:12px 40px;
+      font-size: 18px;
+    }
 
     &:hover,
     &:focus,
