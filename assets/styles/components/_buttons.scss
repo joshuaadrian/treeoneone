@@ -233,6 +233,7 @@
 
 	        background-color:rgba($color,0) !important;
 	    	  border-color: $color !important;
+          color:$color !important;
 
 	        &:before {
 	          background-color:rgba($color,1) !important;

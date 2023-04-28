@@ -96,4 +96,79 @@
 
 	}
 
+	&--form {
+		top:0;
+		left:0;
+		height:100vh;
+		width:100%;
+		transform:translateY(100%);
+		transition: 0.3s transform 0.3s ease-in-out;
+		background:$pink-400;
+		position: fixed;
+		z-index: 9999;
+		background-color: rgba($pink-400,0.65);
+
+		&--close {
+			font-size: 64px;
+			font-family: $font-family-headings;
+			line-height: 1;
+			position: absolute;
+			top:50px;
+			right:60px;
+			text-decoration: none;
+			color:$pink-400;
+			transform:rotate(0deg);
+			transition: all 0.2s ease-in-out;
+
+			&:hover {
+				text-decoration: none;
+				font-size: 80px;
+				transform:rotate(5deg);
+				color:$pink-400;
+			}
+		}
+
+		&--container {
+			display: flex;
+			flex-flow: column wrap;
+			height:calc(100% - 60px);
+			width:calc(100% - 60px);
+			align-items: center;
+			justify-content: center;
+			padding:30px;
+			opacity: 0;
+			transition: 0.3s opacity 0s ease-in-out;
+			border-radius: 30px;
+			margin:30px;
+			border:3px solid $pink-400;
+			background-color: $green-100;
+		}
+
+		form {
+
+		}
+
+	}
+
+}
+
+body.is-showing-form {
+
+	overflow: hidden;
+	height:100vh;
+
+	.too {
+
+		&--form {
+			transform:translateY(0);
+			transition: 0.3s transform 0s ease-in-out;
+
+			&--container {
+				opacity: 1;
+				transition: 0.3s opacity 0.3s ease-in-out;
+			}
+		}
+
+	}
+
 }
