@@ -3034,7 +3034,7 @@ form textarea {
     margin: -90px 0 15px;
   }
 }
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   .too--footer .columns {
     align-items: flex-end;
   }
