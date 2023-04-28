@@ -8,20 +8,37 @@
 	justify-content: space-between;
 	align-items: flex-end;
 
+	@media(max-width:$screen-md-max) {
+		text-align: center;
+	}
+
 	&--tree {
 		width:160px;
 		height:auto;
-		margin:-90px 0 15px;
+		margin:15px 0;
+
+		@media(min-width:$screen-md-min) {
+			margin:-90px 0 15px;
+		}
+
 	}
 
 	.columns {
-		align-items: flex-end;
+
+		@media(max-width:$screen-md-max) {
+			align-items: flex-end;
+		}
+
 	}
 
 	.column {
 
 		&:nth-child(2n) {
-			text-align: right;
+
+			@media(min-width:$screen-md-min) {
+				text-align: right;
+			}
+
 		}
 	}
 

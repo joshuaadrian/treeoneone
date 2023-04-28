@@ -3019,16 +3019,30 @@ form textarea {
   justify-content: space-between;
   align-items: flex-end;
 }
+@media (max-width: 767px) {
+  .too--footer {
+    text-align: center;
+  }
+}
 .too--footer--tree {
   width: 160px;
   height: auto;
-  margin: -90px 0 15px;
+  margin: 15px 0;
 }
-.too--footer .columns {
-  align-items: flex-end;
+@media (min-width: 768px) {
+  .too--footer--tree {
+    margin: -90px 0 15px;
+  }
 }
-.too--footer .column:nth-child(2n) {
-  text-align: right;
+@media (max-width: 767px) {
+  .too--footer .columns {
+    align-items: flex-end;
+  }
+}
+@media (min-width: 768px) {
+  .too--footer .column:nth-child(2n) {
+    text-align: right;
+  }
 }
 
 .too--header {
