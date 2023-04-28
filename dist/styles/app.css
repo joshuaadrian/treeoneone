@@ -2936,16 +2936,20 @@ body:not(.home) .home-only {
   margin-right: auto;
 }
 
-.columns {
-  display: flex;
-  flex-flow: row nowrap;
+@media (min-width: 768px) {
+  .columns {
+    display: flex;
+    flex-flow: row nowrap;
+  }
 }
 
 .column {
   flex: 1 0 50%;
 }
-.column:nth-child(2n) {
-  margin-left: 60px;
+@media (min-width: 768px) {
+  .column:nth-child(2n) {
+    margin-left: 60px;
+  }
 }
 
 form label {
@@ -3072,7 +3076,12 @@ form textarea {
 .too--logo {
   color: #000000;
   margin: 0;
-  width: 280px;
+  width: 180px;
+}
+@media (min-width: 768px) {
+  .too--logo {
+    width: 280px;
+  }
 }
 .too--logo svg {
   width: 100%;
@@ -3102,6 +3111,12 @@ form textarea {
   display: block;
   font-weight: 600;
 }
+@media (max-width: 767px) {
+  .too--nav a {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
 
 .too--branding {
   padding: 100px 0 30px;
@@ -3118,8 +3133,13 @@ form textarea {
 }
 .too--requests--title {
   color: #b24d81;
-  padding: 200px 0 0;
+  padding: 30px 0 0;
   margin: 0 0 10px;
+}
+@media (min-width: 768px) {
+  .too--requests--title {
+    padding: 200px 0 0;
+  }
 }
 .too--requests--title small {
   display: block;

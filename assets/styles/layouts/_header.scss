@@ -49,7 +49,11 @@
 
 		color:$black;
 		margin:0;
-		width:280px;
+		width:180px;
+
+		@media(min-width:$screen-md-min) {
+			width:280px;
+		}
 
 		svg {
 			width:100%;
@@ -89,6 +93,11 @@
 			font-size: 18px;
 			display: block;
 			font-weight: 600;
+
+			@media(max-width:$screen-md-max) {
+				padding-left:15px !important;
+				padding-right:15px !important;
+			}
 		}
 
 	}

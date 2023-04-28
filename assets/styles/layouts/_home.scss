@@ -21,8 +21,12 @@
 	&--requests--title {
 
 		color:$pink-400;
-		padding:200px 0 0;
+		padding:30px 0 0;
 		margin:0 0 10px;
+
+		@media(min-width:$screen-md-min) {
+			padding:200px 0 0;
+		}
 
 		small	{
 			display: block;
