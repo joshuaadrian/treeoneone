@@ -3232,6 +3232,7 @@ form textarea {
   color: #b24d81;
   transform: rotate(0deg);
   transition: all 0.2s ease-in-out;
+  transform-origin: right bottom;
 }
 .too--form--close:hover {
   text-decoration: none;
