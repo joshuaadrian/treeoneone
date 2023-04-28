@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 let mix                  = require('laravel-mix');
+let webpack              = require('webpack');
 let path                 = require('path');
 let productionSourceMaps = false;
 
@@ -15,6 +16,12 @@ mix.setResourceRoot('../');
 mix.setPublicPath(path.resolve('./'));
 
 mix.webpackConfig({
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    })
+  ],
   watchOptions: {
     ignored: [
       path.posix.resolve(__dirname, './node_modules'),

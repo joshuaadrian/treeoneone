@@ -131,7 +131,7 @@
 
     border-width:3px;
     overflow: hidden;
-    color: $green-400 !important;
+    color: $pink-400 !important;
 
     &:before {
       border-radius: 100% 100% 0 0;
@@ -141,7 +141,7 @@
     &:hover,
     &:focus {
 
-    	color:$green-400 !important;
+    	color:$pink-400 !important;
 
       &:before {
         border-radius: 0 0 0 0;
@@ -153,19 +153,19 @@
 
     &:not(.has-background) {
 
-  	  border-color: rgba($green-400,1) !important;
-      background-color:rgba($green-400,0) !important;
+  	  border-color: rgba($pink-400,1) !important;
+      background-color:rgba($pink-400,0) !important;
 
       &:hover,
   		&:focus {
 
-        border-color: rgba($green-400,1) !important;
-        background-color:rgba($green-400,0) !important;
+        border-color: rgba($pink-400,1) !important;
+        background-color:rgba($pink-400,0) !important;
         color:$white !important;
   		}
 
       &:before {
-        background: $green-400;
+        background: $pink-400;
       }
 
     }
@@ -179,7 +179,7 @@
     display: inline-block;
     padding:12px 40px;
     transition: all 0.2s ease-in-out;
-    border-radius:8px !important;
+    border-radius:30px !important;
     position: relative;
     font-weight: 600;
     border-style:solid;

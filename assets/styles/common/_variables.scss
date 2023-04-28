@@ -52,12 +52,16 @@ $gray-400    : #6c747a;
 $gray-500    : #2d3235;
 $gray-700    : #1E1E1E;
 $green-100   : #e3faba;
-$green-200   : #18e17a;
+$green-200   : #c6eb83;
 $green-300   : #1ea962;
-$green-400   : #139754;
+$green-400   : #83c30c;
 $blue-100    : #f0f4f7;
 $blue-200    : #6cabdc;
 $blue-400    : #386b8a;
+$yellow-400  : #f7e521;
+$yellow-600  : #f7c121;
+$yellow-700  : #c3b51d;
+$pink-400    : #b24d81;
 
 $colors: (
 	'white'      : $white,
@@ -74,7 +78,11 @@ $colors: (
 	'green-400'  : $green-400,
 	'blue-100'   : $blue-100,
 	'blue-200'   : $blue-200,
-	'blue-400'   : $blue-400
+	'blue-400'   : $blue-400,
+	'yellow-400' : $yellow-400,
+	'yellow-600' : $yellow-600,
+	'yellow-700' : $yellow-700,
+	'pink-400'   : $pink-400
 );
 
 $colors-names: (
@@ -92,7 +100,11 @@ $colors-names: (
 	'green-400',
 	'blue-100',
 	'blue-200',
-	'blue-400'
+	'blue-400',
+	'yellow-400',
+	'yellow-600',
+	'yellow-700',
+	'pink-400'
 );
 
 $colors-hover: (
@@ -110,7 +122,11 @@ $colors-hover: (
 	'green-400' : darken($green-400,10%),
 	'blue-100'  : darken($blue-100,10%),
 	'blue-200'  : darken($blue-200,10%),
-	'blue-400'  : darken($blue-200,10%)
+	'blue-400'  : darken($blue-400,10%),
+	'yellow-400': darken($yellow-400,10%),
+	'yellow-600': darken($yellow-600,10%),
+	'yellow-700': darken($yellow-700,10%),
+	'pink-400'  : darken($pink-400,10%)
 );
 
 $gradients : (
@@ -136,7 +152,7 @@ $link-hover-decoration: underline;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-$font-family-headings     : "Barlow","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-headings     : "lisbeth-display", "Barlow","Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-sans-serif   : "Barlow","Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif        : Georgia, "Times New Roman", Times, serif;
 $font-family-monospace    : Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -164,6 +180,6 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit;
-$headings-font-weight:    400;
+$headings-font-weight:    600;
 $headings-line-height:    1.2;
 $headings-color:          inherit;

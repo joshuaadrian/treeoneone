@@ -2,32 +2,6 @@
 
 var winWidth = $(window).width();
 
-function isTouchDevice() {
-  return (('ontouchstart' in window) ||
-     (navigator.maxTouchPoints > 0) ||
-     (navigator.msMaxTouchPoints > 0));
-}
-
-if ( isTouchDevice() ) {
-  $('html').addClass('is-touch');
-}
-
-$('.nav-search > a').on('click', function(e) {
-  e.preventDefault();
-  $('.banner').toggleClass('is-searching');
-  $('.nav-search').toggleClass('is-showing');
-  $('.menu-item').not('.nav-search').toggleClass('is-hiding');
-});
-
-$('.back-to-top').on('click', function(e) {
-
-  e.preventDefault();
-  $('html, body').animate({
-    scrollTop: 0
-  }, 750);
-
-});
-
 // Add class to body on hamburger click
 $('.navbar-toggler').on('click', function(e) {
   e.preventDefault();

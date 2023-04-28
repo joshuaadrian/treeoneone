@@ -5,15 +5,93 @@
 		padding:100px 0 30px;
 
 		&--tree {
-			max-width: 400px;
+			max-width: 300px;
 			margin:0 auto;
 			display: block;
 		}
 
 		&--logo {
-			max-width: 400px;
+			max-width: 360px;
 			margin:0 auto;
 			display: block;
+		}
+
+	}
+
+	&--requests--title {
+
+		color:$pink-400;
+		padding:200px 0 0;
+		margin:0 0 10px;
+
+		small	{
+			display: block;
+			font-size:16px;
+			text-transform: uppercase;
+			font-weight: 900;
+			margin:0 0 -5px;
+		}
+
+	}
+
+	&--requests {
+		list-style-type: none;
+		margin:0 0 120px;
+		padding:0;
+		border:3px solid $green-200;
+		border-radius: 30px;
+		overflow: hidden;
+	}
+
+	&--request {
+
+		display: flex;
+		flex-flow: row wrap;
+		width:100%;
+		margin:0;
+		background-color:$white;
+		padding:20px 180px 20px 20px;
+		font-size:16px;
+		background-color:darken($green-100,5%);
+		box-shadow: 0 4px 4px rgba($green-400,0);
+		position: relative;
+		z-index: 1;
+
+		&:hover {
+			transition:box-shadow 0.4s ease-in-out;
+			//transform:
+			z-index: 2;
+			box-shadow: 0 4px 4px rgba($green-400,0.5);
+		}
+
+		&:nth-child(odd) {
+			background-color:lighten($green-100,5%);
+		}
+
+		span {
+			display: block;
+			flex:1 0 100%;
+
+			span {
+				display: inline-block;
+			}
+		}
+
+		&--actions {
+			position: absolute;
+			width:160px;
+			top:0;
+			right:0;
+			bottom:0;
+
+			.button {
+
+				.button--link {
+					padding:6px;
+					font-size: 10px;
+				}
+
+			}
 		}
 
 	}

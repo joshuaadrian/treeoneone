@@ -1,6 +1,6 @@
 {
-    "/scripts/app.js": "/scripts/app.js?id=4519015e78fea85018db620a9c6eaae5",
-    "/styles/app.css": "/styles/app.css?id=de4c382e5d70d5f30548c80a4d46431d",
+    "/scripts/app.js": "/scripts/app.js?id=d164f41b405ff11740a0676b41998497",
+    "/styles/app.css": "/styles/app.css?id=df39d98a258ecd70e8e42ae4e1121aa6",
     "/images/background-news-archive.jpeg": "/images/background-news-archive.jpeg?id=fa463000c3786e4b654b50e29299e944",
     "/images/background-news-archive.jpg": "/images/background-news-archive.jpg?id=eacf798cc99c3919f976c5bf8e90304e",
     "/images/background-portfolio-archive.jpg": "/images/background-portfolio-archive.jpg?id=96107e804b2ad356d976ebac090c323b",
@@ -87,11 +87,14 @@
     "/images/icons/pin-yellow.svg": "/images/icons/pin-yellow.svg?id=13d07c0e3ee34c4b4f29f4d543528bfa",
     "/images/icons/play-button.svg": "/images/icons/play-button.svg?id=e169c8f6be62b5088fdad316039ea857",
     "/images/logo-black.svg": "/images/logo-black.svg?id=5a65ce846a6800837803aaf8a39b07a6",
-    "/images/logo.svg": "/images/logo.svg?id=23ea3f21baaa68269f71addcbf2ac836",
+    "/images/logo-outline.svg": "/images/logo-outline.svg?id=6d1a1d09a5d76428360b667f1a97097b",
+    "/images/logo-solid.svg": "/images/logo-solid.svg?id=cf198c0d195f0bce41b0d8f820ebea14",
+    "/images/logo.svg": "/images/logo.svg?id=42ee5ace12bbfdf898ccc52a3a3d97c0",
     "/images/spacers/spacer-landscape.png": "/images/spacers/spacer-landscape.png?id=ae91fb212cb256eaf8d1a1be89889e0c",
     "/images/spacers/spacer-portrait.png": "/images/spacers/spacer-portrait.png?id=ece2f7705cc993beae8fee24311e9cca",
     "/images/spacers/spacer-square.png": "/images/spacers/spacer-square.png?id=5261b9da19ac0184dd821002b43d3b2f",
     "/images/tree-one.gif": "/images/tree-one.gif?id=b6b785bcc8b9541fe1f34a3676ddd92c",
+    "/images/tree-one.png": "/images/tree-one.png?id=412da0bc32467c30b1d12ede694d0e99",
     "/images/tree-two.gif": "/images/tree-two.gif?id=c8da1e589691413f194b0e93410eb984",
-    "/images/tree-one.png": "/images/tree-one.png?id=412da0bc32467c30b1d12ede694d0e99"
+    "/images/tree-two.png": "/images/tree-two.png?id=aba3004006ca9c66cd8a35a1cc84c42a"
 }

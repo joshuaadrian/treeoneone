@@ -50,3 +50,16 @@
 	}
 
 }
+
+.columns {
+	display: flex;
+	flex-flow:row nowrap;
+}
+
+.column {
+	flex:1 0 50%;
+
+	&:nth-child(2n) {
+		margin-left:60px;
+	}
+}
