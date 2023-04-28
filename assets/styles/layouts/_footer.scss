@@ -12,6 +12,18 @@
 		text-align: center;
 	}
 
+	p {
+
+		+ p {
+			margin-top:-10px;
+		}
+
+		strong	{
+			font-size:18px;
+		}
+
+	}
+
 	&--tree {
 		width:160px;
 		height:auto;
