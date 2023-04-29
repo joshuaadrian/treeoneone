@@ -54,7 +54,7 @@
 		width:100%;
 		margin:0;
 		background-color:$white;
-		padding:20px 180px 20px 20px;
+		padding:20px 140px 20px 20px;
 		font-size:16px;
 		background-color:darken($green-100,5%);
 		box-shadow: 0 4px 4px rgba($green-400,0);
@@ -81,18 +81,44 @@
 			}
 		}
 
+		&--date,
+		&--author {
+			font-size: 12px;
+			text-transform: uppercase;
+		}
+
+		&--address {
+			font-size: 16px;
+			margin:10px 0;
+		}
+
+		&--description {
+			font-size: 12px;
+		}
+
 		&--actions {
 			position: absolute;
-			width:160px;
+			width:100px;
 			top:0;
-			right:0;
+			right:20px;
 			bottom:0;
+			display: flex !important;
+			flex-flow: column wrap;
+			justify-content: center;
+			align-items: center;
+
+			> div {
+
+			}
 
 			.button {
 
+				width:100%;
+
 				.button--link {
-					padding:6px;
-					font-size: 10px;
+					padding:6px 8px;
+					width:100%;
+					font-size: 12px;
 				}
 
 			}
@@ -113,36 +139,39 @@
 		background-color: rgba($pink-400,0.65);
 
 		&--close {
-			font-size: 64px;
+			font-size: 42px;
 			font-family: $font-family-headings;
 			line-height: 1;
 			position: absolute;
-			top:50px;
-			right:60px;
+			top:25px;
+			right:35px;
 			text-decoration: none;
 			color:$pink-400;
 			transform:rotate(0deg);
 			transition: all 0.2s ease-in-out;
-			transform-origin: right bottom;
+			transform-origin: center;
+
+			@media(min-width:$screen-lg-min) {
+				top:50px;
+				right:60px;
+			}
 
 			&:hover,
 			&:active,
 			&:focus {
 				text-decoration: none;
-				font-size: 80px;
-				transform:rotate(5deg);
+				transform:rotate(15deg);
 				color:$pink-400;
 			}
 		}
 
 		&--container {
-			display: flex;
-			flex-flow: column wrap;
+			
 			height:calc(100% - 40px);
 			width:calc(100% - 40px);
 			align-items: center;
 			justify-content: center;
-			padding:20px 0;
+			padding:40px 0;
 			opacity: 0;
 			transition: 0.3s opacity 0s ease-in-out;
 			border-radius: 30px;
@@ -155,6 +184,12 @@
 				height:calc(100% - 60px);
 				width:calc(100% - 60px);
 				margin:30px;
+			}
+
+			@media(min-width:$screen-lg-min) {
+				display: flex;
+				flex-flow: column wrap;
+				padding:20px 0;
 			}
 		}
 

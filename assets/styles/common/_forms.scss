@@ -7,7 +7,7 @@ form {
     font-size:24px;
     margin:0 0 20px;
 
-    @media(min-width:$screen-sm-min) {
+    @media(min-width:$screen-lg-min) {
       font-size:32px;
     }
   }
@@ -24,10 +24,15 @@ form {
     outline:none;
     background:$white;
     color:#222;
-    padding:12px;
-    font-size:20px;
+    padding:8px;
+    font-size:18px;
     border-radius: 6px;
     font-family: $font-family-sans-serif;
+
+    @media(min-width:$screen-lg-min) {
+      padding:12px;
+      font-size:20px;
+    }
   }
 
   select {

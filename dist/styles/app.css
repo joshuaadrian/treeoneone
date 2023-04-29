@@ -2959,7 +2959,7 @@ form label {
   font-size: 24px;
   margin: 0 0 20px;
 }
-@media (min-width: 667px) {
+@media (min-width: 992px) {
   form label {
     font-size: 32px;
   }
@@ -2975,10 +2975,18 @@ form input[type=number] {
   outline: none;
   background: #ffffff;
   color: #222;
-  padding: 12px;
-  font-size: 20px;
+  padding: 8px;
+  font-size: 18px;
   border-radius: 6px;
   font-family: "Barlow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@media (min-width: 992px) {
+  form input[type=text],
+  form input[type=password],
+  form input[type=number] {
+    padding: 12px;
+    font-size: 20px;
+  }
 }
 form select {
   border: none;
@@ -3187,7 +3195,7 @@ form textarea {
   width: 100%;
   margin: 0;
   background-color: #ffffff;
-  padding: 20px 180px 20px 20px;
+  padding: 20px 140px 20px 20px;
   font-size: 16px;
   background-color: #d9f8a2;
   box-shadow: 0 4px 4px rgba(131, 195, 12, 0);
@@ -3209,16 +3217,35 @@ form textarea {
 .too--request span span {
   display: inline-block;
 }
+.too--request--date, .too--request--author {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.too--request--address {
+  font-size: 16px;
+  margin: 10px 0;
+}
+.too--request--description {
+  font-size: 12px;
+}
 .too--request--actions {
   position: absolute;
-  width: 160px;
+  width: 100px;
   top: 0;
-  right: 0;
+  right: 20px;
   bottom: 0;
+  display: flex !important;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.too--request--actions .button {
+  width: 100%;
 }
 .too--request--actions .button .button--link {
-  padding: 6px;
-  font-size: 10px;
+  padding: 6px 8px;
+  width: 100%;
+  font-size: 12px;
 }
 .too--form {
   top: 0;
@@ -3233,32 +3260,35 @@ form textarea {
   background-color: rgba(178, 77, 129, 0.65);
 }
 .too--form--close {
-  font-size: 64px;
+  font-size: 42px;
   font-family: "lisbeth-display", "Barlow", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1;
   position: absolute;
-  top: 50px;
-  right: 60px;
+  top: 25px;
+  right: 35px;
   text-decoration: none;
   color: #b24d81;
   transform: rotate(0deg);
   transition: all 0.2s ease-in-out;
-  transform-origin: right bottom;
+  transform-origin: center;
+}
+@media (min-width: 992px) {
+  .too--form--close {
+    top: 50px;
+    right: 60px;
+  }
 }
 .too--form--close:hover, .too--form--close:active, .too--form--close:focus {
   text-decoration: none;
-  font-size: 80px;
-  transform: rotate(5deg);
+  transform: rotate(15deg);
   color: #b24d81;
 }
 .too--form--container {
-  display: flex;
-  flex-flow: column wrap;
   height: calc(100% - 40px);
   width: calc(100% - 40px);
   align-items: center;
   justify-content: center;
-  padding: 20px 0;
+  padding: 40px 0;
   opacity: 0;
   transition: 0.3s opacity 0s ease-in-out;
   border-radius: 30px;
@@ -3272,6 +3302,13 @@ form textarea {
     height: calc(100% - 60px);
     width: calc(100% - 60px);
     margin: 30px;
+  }
+}
+@media (min-width: 992px) {
+  .too--form--container {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 20px 0;
   }
 }
 body.is-showing-form {
