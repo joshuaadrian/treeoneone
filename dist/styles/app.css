@@ -3246,6 +3246,7 @@ form textarea {
   padding: 6px 8px;
   width: 100%;
   font-size: 12px;
+  border-width: 2px !important;
 }
 .too--form {
   top: 0;
