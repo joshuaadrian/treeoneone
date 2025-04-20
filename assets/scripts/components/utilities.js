@@ -1,6 +1,7 @@
 $('.request--button').on('click', function(e) {
   e.preventDefault();
   $('body').addClass('is-showing-form');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 $('.too--form--close').on('click', function(e) {

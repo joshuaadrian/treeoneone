@@ -3304,8 +3304,8 @@ form textarea {
   }
 }
 body.is-showing-form {
-  overflow: hidden;
-  height: 100vh;
+  /* overflow: hidden;
+  height: 100vh; */
 }
 body.is-showing-form .too--form {
   transform: translateX(0);
