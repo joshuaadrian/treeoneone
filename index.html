@@ -168,11 +168,6 @@
 
 					<form action="/" id="requestForm">
 						
-						<label for="date">
-							<span>Date</span>
-							<input type="text" name="date" id="date">
-						</label>
-
 						<label for="address">
 							<span>Address</span>
 							<input type="text" name="address" id="address">
@@ -199,9 +194,9 @@
 								<video id="video" autoplay playsinline style="display: none;"></video>
 								<canvas id="canvas" style="display: none;"></canvas>
 								<img id="photoPreview" style="max-width: 100%; display: none;">
-								<button type="button" id="startCamera" class="button is-style-outline">Start Camera</button>
-								<button type="button" id="capturePhoto" class="button is-style-outline" style="display: none;">Capture Photo</button>
-								<button type="button" id="retakePhoto" class="button is-style-outline" style="display: none;">Retake Photo</button>
+								<button type="button" id="startCamera" class="camera-button"><span class="">Start Camera</span></button>
+								<button type="button" id="capturePhoto" class="camera-button" style="display: none;"><span class="">Capture Photo</span></button>
+								<button type="button" id="retakePhoto" class="camera-button" style="display: none;"><span class="">Retake Photo</span></button>
 							</div>
 						</label>
 

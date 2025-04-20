@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         canvas.getContext('2d').drawImage(video, 0, 0);
-        const photoData = canvas.toDataURL('image/jpeg');
+        const photoData = canvas.toDataURL('image/jpefg');
         photoPreview.src = photoData;
         photoPreview.style.display = 'block';
         video.style.display = 'none';
         capturePhotoBtn.style.display = 'none';
-        retakePhotoBtn.style.display = 'inline-block';
+        retakePhotoBtn.style.display = 'block';
     });
 
     // Retake photo
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         photoPreview.style.display = 'none';
         video.style.display = 'block';
         retakePhotoBtn.style.display = 'none';
-        capturePhotoBtn.style.display = 'inline-block';
+        capturePhotoBtn.style.display = 'block';
     });
 
     // Form submission

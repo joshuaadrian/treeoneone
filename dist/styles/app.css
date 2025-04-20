@@ -2956,38 +2956,28 @@ form label {
   color: #b24d81;
   display: block;
   font-family: "lisbeth-display", "Barlow", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 24px;
+  font-size: 16px;
   margin: 0 0 20px;
 }
-@media (min-width: 992px) {
-  form label {
-    font-size: 32px;
-  }
-}
+
 form input, form select {
   display: block;
   width: 100%;
 }
 form input[type=text],
 form input[type=password],
-form input[type=number] {
+form input[type=number],
+form input[type=email] {
   border: 3px solid #b24d81;
   outline: none;
   background: #ffffff;
   color: #222;
   padding: 8px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 6px;
   font-family: "Barlow", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-@media (min-width: 992px) {
-  form input[type=text],
-  form input[type=password],
-  form input[type=number] {
-    padding: 12px;
-    font-size: 20px;
-  }
-}
+
 form select {
   border: none;
   border-radius: 0 !important;
@@ -3017,8 +3007,8 @@ form textarea {
   background: #ffffff;
   outline: none;
   color: #222;
-  padding: 12px;
-  font-size: 20px;
+  padding: 8px;
+  font-size: 16px;
   border-radius: 6px;
   border: 3px solid #b24d81;
   font-family: "Barlow", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -3256,7 +3246,7 @@ form textarea {
   transform: translateY(100%);
   transition: 0.3s transform 0.3s ease-in-out;
   background: #b24d81;
-  position: fixed;
+  position: absolute;
   z-index: 9999;
   background-color: rgba(178, 77, 129, 0.65);
 }
@@ -3296,6 +3286,7 @@ form textarea {
   margin: 20px;
   border: 3px solid #b24d81;
   background-color: #e3faba;
+  overflow-y:scroll;
 }
 @media (min-width: 667px) {
   .too--form--container {
@@ -3840,6 +3831,37 @@ body.is-showing-form .too--form--container {
   height: calc(100% + 6px);
   transition: all 0.5s ease;
 }
+.camera-button {
+  background-color: #b24d81;
+  color: #ffffff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-family: "Barlow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.photo-capture {
+  max-width: 100%;
+  margin: 1rem 0 3rem;
+  border-radius: 4px;
+}
+.photo-capture #video {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+#capturePhoto,
+#retakePhoto {
+  margin:1rem auto 3rem;
+}
+
+.photo-capture #photoPreview {
+  
+}
+
 .button .button--link span {
   position: relative;
   z-index: 2;

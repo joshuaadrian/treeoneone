@@ -48,9 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         const formData = {
-            date: document.getElementById('date').value,
+            date: new Date().toISOString(),
             address: document.getElementById('address').value,
             author: document.getElementById('author').value,
+            email: document.getElementById('email').value,
             description: document.getElementById('description').value,
             photo: photoPreview.style.display === 'block' ? photoPreview.src : null
         };
