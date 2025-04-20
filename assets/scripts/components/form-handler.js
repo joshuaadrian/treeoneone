@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             video.srcObject = stream;
             video.style.display = 'block';
             startCameraBtn.style.display = 'none';
-            capturePhotoBtn.style.display = 'inline-block';
+            capturePhotoBtn.style.display = 'block';
         } catch (err) {
             console.error('Error accessing camera:', err);
             alert('Could not access camera. Please ensure you have granted camera permissions.');

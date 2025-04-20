@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             video.srcObject = stream;
             video.style.display = 'block';
             startCameraBtn.style.display = 'none';
-            capturePhotoBtn.style.display = 'inline-block';
+            capturePhotoBtn.style.display = 'block';
         } catch (err) {
             console.error('Error accessing camera:', err);
             alert('Could not access camera. Please ensure you have granted camera permissions.');
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
         canvas.getContext('2d').drawImage(video, 0, 0);
-        const photoData = canvas.toDataURL('image/jpefg');
+        const photoData = canvas.toDataURL('image/jpeg');
         photoPreview.src = photoData;
         photoPreview.style.display = 'block';
         video.style.display = 'none';
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         const formData = {
-            date: document.getElementById('date').value,
+            date: new Date().toISOString(),
             address: document.getElementById('address').value,
             author: document.getElementById('author').value,
             email: document.getElementById('email').value,
