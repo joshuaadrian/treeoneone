@@ -15,6 +15,22 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
+    async function deleteRequest(timestamp) {
+        try {
+            const response = await fetch(`/api/delete-request?timestamp=${encodeURIComponent(timestamp)}`, {
+                method: 'DELETE'
+            });
+            
+            if (!response.ok) throw new Error('Failed to delete request');
+            
+            // Refresh the requests list
+            await displayRequests();
+        } catch (error) {
+            console.error('Error deleting request:', error);
+            alert('Failed to delete request. Please try again.');
+        }
+    }
+
     function formatDate(dateString) {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', {
@@ -52,6 +68,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         link.href = '#';
         link.className = 'button--link';
         link.innerHTML = '<span>Cleaned Up</span>';
+        
+        // Add click handler for deletion
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('Are you sure you want to mark this request as cleaned up?')) {
+                deleteRequest(request.timestamp);
+            }
+        });
         
         button.appendChild(link);
         actions.appendChild(button);
