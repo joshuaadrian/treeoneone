@@ -1,2 +1,37 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Cloudflare specific
+.wrangler/
+.dev.vars
+.dev.vars.json
+
+# Build output
+build/
+
+# OS files
 .DS_Store
-/node_modules
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Local development
+.wrangler/
+.dev.vars
+.dev.vars.json

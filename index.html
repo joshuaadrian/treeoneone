@@ -51,9 +51,9 @@
 
 				<div class="column">
 
-					<h2 class="too--requests--title"><small>35 Total</small> Requests</h2>
+					<h2 class="too--requests--title"><small><span id="too--requests--total">35</span> Total</small> Requests</h2>
 
-					<ul class="too--requests">
+					<ul id="too--requests" class="too--requests">
 
 						<li class="too--request">
 							<span class="too--request--date">February 2nd, 2023 @ 11:37 AM</span>
@@ -166,7 +166,7 @@
 
 				<div class="group--inner">
 
-					<form action="/">
+					<form action="/" id="requestForm">
 						
 						<label for="date">
 							<span>Date</span>
@@ -186,6 +186,18 @@
 						<label for="description">
 							<span>Description</span>
 							<textarea name="description" id="description"></textarea>
+						</label>
+
+						<label for="photo">
+							<span>Photo</span>
+							<div class="photo-capture">
+								<video id="video" autoplay playsinline style="display: none;"></video>
+								<canvas id="canvas" style="display: none;"></canvas>
+								<img id="photoPreview" style="max-width: 100%; display: none;">
+								<button type="button" id="startCamera" class="button is-style-outline">Start Camera</button>
+								<button type="button" id="capturePhoto" class="button is-style-outline" style="display: none;">Capture Photo</button>
+								<button type="button" id="retakePhoto" class="button is-style-outline" style="display: none;">Retake Photo</button>
+							</div>
 						</label>
 
 						<div class="too--form--actions buttons">
@@ -233,7 +245,16 @@
 	</footer>
 
 	<script type="text/javascript" src="dist/scripts/app.js" id="app-js"></script>
-	<script type="text/javascript" src="dist/scripts/app.js" id="app-js"></script>
+	<script type="text/javascript" src="dist/scripts/form-handler.js"></script>
+	<script type="text/javascript" src="dist/scripts/requests.js"></script>
+
+	<style>
+		.too--request--photo {
+			max-width: 100%;
+			margin-top: 1rem;
+			border-radius: 4px;
+		}
+	</style>
 
 </body>
 </html>

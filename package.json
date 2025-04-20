@@ -1,29 +1,12 @@
 {
-  "private": true,
+  "name": "treeoneone",
+  "version": "1.0.0",
+  "description": "Tree maintenance request system",
   "scripts": {
-    "dev": "npm run development",
-    "development": "NODE_ENV=development webpack --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "NODE_ENV=development webpack --watch --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch-poll": "npm run watch -- --watch-poll",
-    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "NODE_ENV=production webpack --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "postinstall": "npm run production"
+    "dev": "wrangler pages dev .",
+    "deploy": "wrangler pages deploy ."
   },
   "devDependencies": {
-    "animate.css": "^4.1.1",
-    "animejs": "^3.2.1",
-    "autoprefixer": "^10.4.14",
-    "browser-sync": "^2.29.1",
-    "browser-sync-webpack-plugin": "^2.3.0",
-    "jquery": "^3.6.4",
-    "jquery-bridget": "^3.0.1",
-    "jquery-colorbox": "^1.6.4",
-    "laravel-mix": "^6.0.49",
-    "laravel-mix-polyfill": "^3.0.1",
-    "postcss": "^8.4.23",
-    "sass": "^1.62.1",
-    "sass-loader": "^13.2.2",
-    "vanilla-lazyload": "^17.8.3"
+    "wrangler": "^3.0.0"
   }
 }
