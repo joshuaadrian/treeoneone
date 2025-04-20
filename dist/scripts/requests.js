@@ -15,13 +15,33 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
-    async function deleteRequest(timestamp) {
+    async function deleteRequest(request) {
         try {
-            const response = await fetch(`/api/delete-request?timestamp=${encodeURIComponent(timestamp)}`, {
+            const response = await fetch(`/api/delete-request?timestamp=${encodeURIComponent(request.timestamp)}`, {
                 method: 'DELETE'
             });
             
             if (!response.ok) throw new Error('Failed to delete request');
+
+            // Send email notification if email was provided
+            if (request.email) {
+                try {
+                    await fetch('/api/send-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: request.email,
+                            address: request.address,
+                            timestamp: request.timestamp
+                        })
+                    });
+                } catch (emailError) {
+                    console.error('Failed to send email notification:', emailError);
+                    // Don't show error to user as the main action (deletion) was successful
+                }
+            }
             
             // Refresh the requests list
             await displayRequests();
@@ -73,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             if (confirm('Are you sure you want to mark this request as cleaned up?')) {
-                deleteRequest(request.timestamp);
+                deleteRequest(request);
             }
         });
         

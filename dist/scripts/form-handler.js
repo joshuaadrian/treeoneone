@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             date: document.getElementById('date').value,
             address: document.getElementById('address').value,
             author: document.getElementById('author').value,
+            email: document.getElementById('email').value,
             description: document.getElementById('description').value,
             photo: photoPreview.style.display === 'block' ? photoPreview.src : null
         };
