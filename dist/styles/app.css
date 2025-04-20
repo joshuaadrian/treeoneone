@@ -3065,7 +3065,7 @@ form textarea {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0);
   transition: all 0.6s ease-in-out;
   transform: translateY(0);
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
