@@ -3243,7 +3243,7 @@ form textarea {
   left: 0;
   height: 100vh;
   width: 100%;
-  transform: translateY(100%);
+  transform: translateX(100%);
   transition: 0.3s transform 0.3s ease-in-out;
   background: #b24d81;
   position: absolute;
@@ -3308,7 +3308,7 @@ body.is-showing-form {
   height: 100vh;
 }
 body.is-showing-form .too--form {
-  transform: translateY(0);
+  transform: translateX(0);
   transition: 0.3s transform 0s ease-in-out;
 }
 body.is-showing-form .too--form--container {
