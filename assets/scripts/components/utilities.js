@@ -1,10 +1,12 @@
-$('.request--button').on('click', function(e) {
+// Request button click handler
+document.querySelector('.request--button')?.addEventListener('click', function(e) {
   e.preventDefault();
-  $('body').addClass('is-showing-form');
+  document.body.classList.add('is-showing-form');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-$('.too--form--close').on('click', function(e) {
+// Form close button click handler
+document.querySelector('.too--form--close')?.addEventListener('click', function(e) {
   e.preventDefault();
   
   // Stop camera stream if active
@@ -27,5 +29,5 @@ $('.too--form--close').on('click', function(e) {
   if (photoPreview) photoPreview.style.display = 'none';
   if (video) video.style.display = 'none';
   
-  $('body').removeClass('is-showing-form');
+  document.body.classList.remove('is-showing-form');
 });

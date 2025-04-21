@@ -10,18 +10,12 @@ const domain    = 'treeoneone.test';
 const homedir   = require('os').homedir();
 
 mix.setPublicPath('dist');
-mix.setResourceRoot(`/wp-content/themes/${themename}/dist/`);
+mix.setResourceRoot('/dist/');
 
 mix.setResourceRoot('../');
 mix.setPublicPath(path.resolve('./'));
 
 mix.webpackConfig({
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    })
-  ],
   watchOptions: {
     ignored: [
       path.posix.resolve(__dirname, './node_modules'),
@@ -36,9 +30,7 @@ mix.webpackConfig({
   },
 });
 
-mix.autoload({
-   jquery : ['$', 'window.$', 'window.jQuery']
-})
+mix
 .setPublicPath('dist')
 .js('assets/scripts/app.js', 'dist/scripts')
 .sass('assets/styles/app.scss', 'dist/styles')

@@ -4,9 +4,15 @@
   "description": "Tree maintenance request system",
   "scripts": {
     "dev": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy ."
+    "deploy": "wrangler pages deploy .",
+    "build": "NODE_ENV=production webpack --progress --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "wrangler": "^3.0.0",
+    "autoprefixer": "^10.4.20",
+    "laravel-mix": "^6.0.49",
+    "laravel-mix-polyfill": "^3.0.1",
+    "sass": "^1.84.0",
+    "sass-loader": "^16.0.4"
   }
 }
