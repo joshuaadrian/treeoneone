@@ -4519,3 +4519,9 @@ body.is-showing-form .too--form--container {
 .button.is-style-outline .button--link.has-white-background-color:hover, .button.is-style-outline .button--link.has-white-background-color:focus {
   color: #000000 !important;
 }
+
+.too--request--photo {
+    max-width: 100%;
+    margin-top: 1rem;
+    border-radius: 4px;
+}

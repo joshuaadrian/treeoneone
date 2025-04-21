@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-let mix                  = require('laravel-mix');
+const mix = require('laravel-mix');
 let webpack              = require('webpack');
 let path                 = require('path');
 let productionSourceMaps = false;

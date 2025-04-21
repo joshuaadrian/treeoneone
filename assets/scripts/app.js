@@ -11,4 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
   require('./form-handler');
   require('./requests');
 
+  require('./utils/asset-loader');
+
 });
