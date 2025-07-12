@@ -27,11 +27,18 @@ function initFormHandler() {
 
     let stream = null;
 
-    // Simple camera start function
+    // Camera start function with rear camera preference
     async function startCamera() {
         console.log('Starting camera...');
         try {
-            stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            // Try to get rear camera first
+            const constraints = {
+                video: {
+                    facingMode: { ideal: 'environment' } // 'environment' = rear camera
+                }
+            };
+            
+            stream = await navigator.mediaDevices.getUserMedia(constraints);
             console.log('Camera stream obtained');
             
             video.srcObject = stream;
@@ -40,8 +47,20 @@ function initFormHandler() {
             capturePhotoBtn.style.display = 'block';
             console.log('Camera started successfully');
         } catch (err) {
-            console.error('Error accessing camera:', err);
-            alert('Could not access camera. Please ensure you have granted camera permissions.');
+            console.error('Error accessing rear camera:', err);
+            // Fallback to any available camera if rear camera fails
+            try {
+                console.log('Trying fallback to any available camera...');
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+                video.style.display = 'block';
+                startCameraBtn.style.display = 'none';
+                capturePhotoBtn.style.display = 'block';
+                console.log('Fallback camera started successfully');
+            } catch (fallbackErr) {
+                console.error('Error accessing any camera:', fallbackErr);
+                alert('Could not access camera. Please ensure you have granted camera permissions.');
+            }
         }
     }
 
