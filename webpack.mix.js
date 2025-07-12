@@ -54,6 +54,7 @@ mix
 })
 .copyDirectory('assets/images/', 'dist/images')
 .copyDirectory('assets/fonts/', 'dist/fonts')
+.copy('index.html', 'dist/index.html')
 // .copy('assets/scripts/flickity.js', 'dist/scripts/flickity.js')
 .sourceMaps()
 .options({
