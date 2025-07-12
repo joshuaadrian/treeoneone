@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async function() {
+async function initRequests() {
     const requestsList = document.getElementById('too--requests');
     const totalRequests = document.getElementById('too--requests--total');
 
@@ -142,4 +142,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Refresh every 30 seconds
     setInterval(displayRequests, 30000);
-}); 
+}
+
+initRequests();
