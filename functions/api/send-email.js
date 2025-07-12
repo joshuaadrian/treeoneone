@@ -14,48 +14,25 @@ export async function onRequestPost(context) {
             });
         }
 
-        // Create email message
-        const message = {
-            from: "TreeOneOne <notifications@treeoneone.org>",
-            to: email,
-            subject: "Your Tree Request Has Been Cleaned Up!",
-            text: `Hello,\n\nWe're happy to inform you that the tree maintenance request you submitted for ${address} has been completed.\n\nThank you for using TreeOneOne!\n\nBest regards,\nThe TreeOneOne Team`,
-            html: `
-                <h2>Your Tree Request Has Been Cleaned Up!</h2>
-                <p>Hello,</p>
-                <p>We're happy to inform you that the tree maintenance request you submitted for <strong>${address}</strong> has been completed.</p>
-                <p>Thank you for using TreeOneOne!</p>
-                <p>Best regards,<br>The TreeOneOne Team</p>
-            `
-        };
-
-        // Send email using Cloudflare Email Workers
-        const response = await fetch('https://api.mailchannels.net/tx/v1/send', {
+        // Send email using Resend
+        const response = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json',
+                'Authorization': `Bearer ${context.env.RESEND_API_KEY}`,
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                personalizations: [
-                    {
-                        to: [{ email: message.to }],
-                    },
-                ],
-                from: {
-                    email: message.from.split(' ')[1].slice(1, -1),
-                    name: message.from.split(' ')[0],
-                },
-                subject: message.subject,
-                content: [
-                    {
-                        type: 'text/plain',
-                        value: message.text,
-                    },
-                    {
-                        type: 'text/html',
-                        value: message.html,
-                    },
-                ],
+                from: 'TreeOneOne <notifications@treeoneone.org>',
+                to: [email],
+                subject: 'Your Tree Request Has Been Cleaned Up!',
+                html: `
+                    <h2>Your Tree Request Has Been Cleaned Up!</h2>
+                    <p>Hello,</p>
+                    <p>We're happy to inform you that the tree maintenance request you submitted for <strong>${address}</strong> has been completed.</p>
+                    <p>Thank you for using TreeOneOne!</p>
+                    <p>Best regards,<br>The TreeOneOne Team</p>
+                `,
+                text: `Hello,\n\nWe're happy to inform you that the tree maintenance request you submitted for ${address} has been completed.\n\nThank you for using TreeOneOne!\n\nBest regards,\nThe TreeOneOne Team`
             }),
         });
 
