@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         photoPreview.style.display = 'block';
         video.style.display = 'none';
         capturePhotoBtn.style.display = 'none';
-        retakePhotoBtn.style.display = 'inline-block';
+        retakePhotoBtn.style.display = 'block';
     });
 
     // Retake photo
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         photoPreview.style.display = 'none';
         video.style.display = 'block';
         retakePhotoBtn.style.display = 'none';
-        capturePhotoBtn.style.display = 'inline-block';
+        capturePhotoBtn.style.display = 'block';
     });
 
     // Form submission

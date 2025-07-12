@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     async function fetchRequests() {
         try {
-            const response = await fetch('/api/requests');
+            const response = await fetch('../functions/api/requests');
             if (!response.ok) throw new Error('Failed to fetch requests');
             
             const requests = await response.json();
@@ -12,6 +12,42 @@ document.addEventListener('DOMContentLoaded', async function() {
         } catch (error) {
             console.error('Error fetching requests:', error);
             return [];
+        }
+    }
+
+    async function deleteRequest(request) {
+        try {
+            const response = await fetch(`../functions/api/delete-request?timestamp=${encodeURIComponent(request.timestamp)}`, {
+                method: 'DELETE'
+            });
+            
+            if (!response.ok) throw new Error('Failed to delete request');
+
+            // Send email notification if email was provided
+            if (request.email) {
+                try {
+                    await fetch('../functions/api/send-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: request.email,
+                            address: request.address,
+                            timestamp: request.timestamp
+                        })
+                    });
+                } catch (emailError) {
+                    console.error('Failed to send email notification:', emailError);
+                    // Don't show error to user as the main action (deletion) was successful
+                }
+            }
+            
+            // Refresh the requests list
+            await displayRequests();
+        } catch (error) {
+            console.error('Error deleting request:', error);
+            alert('Failed to delete request. Please try again.');
         }
     }
 
@@ -52,6 +88,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         link.href = '#';
         link.className = 'button--link';
         link.innerHTML = '<span>Cleaned Up</span>';
+        
+        // Add click handler for deletion
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('Are you sure you want to mark this request as cleaned up?')) {
+                deleteRequest(request);
+            }
+        });
         
         button.appendChild(link);
         actions.appendChild(button);
