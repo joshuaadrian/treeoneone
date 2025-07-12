@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const cameraSelection = document.getElementById('cameraSelection');
     const cameraSelect = document.getElementById('cameraSelect');
     const switchCameraBtn = document.getElementById('switchCamera');
+    
+    // Check if required elements exist
+    if (!form || !video || !canvas || !photoPreview || !startCameraBtn || !capturePhotoBtn || !retakePhotoBtn) {
+        console.error('Required camera elements not found');
+        return;
+    }
+    
     let stream = null;
     let availableCameras = [];
     let currentCameraIndex = 0;
@@ -16,9 +23,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get available cameras
     async function getAvailableCameras() {
         try {
+            // Request camera permission first
+            await navigator.mediaDevices.getUserMedia({ video: true });
+            
             const devices = await navigator.mediaDevices.enumerateDevices();
             const videoDevices = devices.filter(device => device.kind === 'videoinput');
             availableCameras = videoDevices;
+            
+            // Only proceed if camera selection elements exist
+            if (!cameraSelect) {
+                console.warn('Camera select element not found');
+                return;
+            }
             
             // Clear existing options
             cameraSelect.innerHTML = '';
@@ -36,14 +52,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 cameraSelect.appendChild(option);
             });
             
-            // Show camera selection if multiple cameras available
-            if (videoDevices.length > 1) {
+            // Show camera selection if multiple cameras available and elements exist
+            if (videoDevices.length > 1 && cameraSelection && switchCameraBtn) {
                 cameraSelection.style.display = 'block';
                 switchCameraBtn.style.display = 'inline-block';
             }
         } catch (err) {
             console.error('Error getting cameras:', err);
-            cameraSelect.innerHTML = '<option value="">Error loading cameras</option>';
+            if (cameraSelect) {
+                cameraSelect.innerHTML = '<option value="">Error loading cameras</option>';
+            }
         }
     }
 
@@ -83,22 +101,28 @@ document.addEventListener('DOMContentLoaded', function() {
         await startCameraWithDevice(0);
     });
 
-    // Switch camera
-    switchCameraBtn.addEventListener('click', async () => {
-        if (availableCameras.length > 1) {
-            const nextIndex = (currentCameraIndex + 1) % availableCameras.length;
-            await startCameraWithDevice(nextIndex);
-            cameraSelect.value = nextIndex;
-        }
-    });
+    // Switch camera (only if element exists)
+    if (switchCameraBtn) {
+        switchCameraBtn.addEventListener('click', async () => {
+            if (availableCameras.length > 1) {
+                const nextIndex = (currentCameraIndex + 1) % availableCameras.length;
+                await startCameraWithDevice(nextIndex);
+                if (cameraSelect) {
+                    cameraSelect.value = nextIndex;
+                }
+            }
+        });
+    }
 
-    // Camera selection change
-    cameraSelect.addEventListener('change', async () => {
-        const selectedIndex = parseInt(cameraSelect.value);
-        if (!isNaN(selectedIndex) && selectedIndex >= 0 && selectedIndex < availableCameras.length) {
-            await startCameraWithDevice(selectedIndex);
-        }
-    });
+    // Camera selection change (only if element exists)
+    if (cameraSelect) {
+        cameraSelect.addEventListener('change', async () => {
+            const selectedIndex = parseInt(cameraSelect.value);
+            if (!isNaN(selectedIndex) && selectedIndex >= 0 && selectedIndex < availableCameras.length) {
+                await startCameraWithDevice(selectedIndex);
+            }
+        });
+    }
 
     // Capture photo
     capturePhotoBtn.addEventListener('click', () => {
@@ -111,7 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
         video.style.display = 'none';
         capturePhotoBtn.style.display = 'none';
         retakePhotoBtn.style.display = 'block';
-        cameraSelection.style.display = 'none';
+        if (cameraSelection) {
+            cameraSelection.style.display = 'none';
+        }
     });
 
     // Retake photo
@@ -120,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         video.style.display = 'block';
         retakePhotoBtn.style.display = 'none';
         capturePhotoBtn.style.display = 'block';
-        if (availableCameras.length > 1) {
+        if (availableCameras.length > 1 && cameraSelection) {
             cameraSelection.style.display = 'block';
         }
     });
@@ -159,8 +185,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 photoPreview.style.display = 'none';
                 startCameraBtn.style.display = 'inline-block';
                 retakePhotoBtn.style.display = 'none';
-                cameraSelection.style.display = 'none';
-                switchCameraBtn.style.display = 'none';
+                if (cameraSelection) {
+                    cameraSelection.style.display = 'none';
+                }
+                if (switchCameraBtn) {
+                    switchCameraBtn.style.display = 'none';
+                }
             } else {
                 throw new Error('Failed to save request');
             }
