@@ -3083,6 +3083,12 @@ form textarea {
   }
 }
 
+.too--content {
+	overflow: hidden;
+	max-width: 100%;
+	height:100%;
+}
+
 .too--header {
   display: flex;
   flex-flow: row nowrap;
@@ -3270,9 +3276,11 @@ form textarea {
 .too--form {
   top: 0;
   left: 0;
+  right:0;
   height: 100vh;
   width: 100%;
-  transform: translateX(100%);
+  max-width: 100%;
+  transform: translateY(-100%);
   transition: 0.3s transform 0.3s ease-in-out;
   background: #b24d81;
   position: absolute;
@@ -3337,7 +3345,7 @@ body.is-showing-form {
   height: 100vh; */
 }
 body.is-showing-form .too--form {
-  transform: translateX(0);
+  transform: translateY(0);
   transition: 0.3s transform 0s ease-in-out;
 }
 body.is-showing-form .too--form--container {
