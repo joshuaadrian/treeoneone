@@ -5,6 +5,11 @@ interface RequestFormProps {
   onClose: () => void;
 }
 
+interface CameraDevice {
+  deviceId: string;
+  label: string;
+}
+
 export default function RequestForm({ isOpen, onClose }: RequestFormProps) {
   const [formData, setFormData] = useState({
     address: '',
@@ -12,19 +17,63 @@ export default function RequestForm({ isOpen, onClose }: RequestFormProps) {
     photo: '',
   });
   const [isCameraActive, setIsCameraActive] = useState(false);
+  const [availableCameras, setAvailableCameras] = useState<CameraDevice[]>([]);
+  const [selectedCameraIndex, setSelectedCameraIndex] = useState(0);
+  const [showCameraSelection, setShowCameraSelection] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
 
-  const startCamera = async () => {
+  // Get available cameras
+  const getAvailableCameras = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const videoDevices = devices.filter(device => device.kind === 'videoinput');
+      setAvailableCameras(videoDevices);
+      setShowCameraSelection(videoDevices.length > 1);
+    } catch (err) {
+      console.error('Error getting cameras:', err);
+    }
+  };
+
+  const startCameraWithDevice = async (deviceIndex = 0) => {
+    try {
+      // Stop existing stream if any
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop());
+      }
+
+      let stream: MediaStream;
+      if (availableCameras.length === 0) {
+        // Fallback to default camera
+        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      } else {
+        // Use selected camera
+        const deviceId = availableCameras[deviceIndex].deviceId;
+        stream = await navigator.mediaDevices.getUserMedia({ 
+          video: { deviceId: { exact: deviceId } }
+        });
+      }
+      
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         streamRef.current = stream;
         setIsCameraActive(true);
+        setSelectedCameraIndex(deviceIndex);
       }
     } catch (err) {
       console.error('Error accessing camera:', err);
+    }
+  };
+
+  const startCamera = async () => {
+    await getAvailableCameras();
+    await startCameraWithDevice(0);
+  };
+
+  const switchCamera = async () => {
+    if (availableCameras.length > 1) {
+      const nextIndex = (selectedCameraIndex + 1) % availableCameras.length;
+      await startCameraWithDevice(nextIndex);
     }
   };
 
@@ -50,7 +99,15 @@ export default function RequestForm({ isOpen, onClose }: RequestFormProps) {
         const photoData = canvas.toDataURL('image/jpeg');
         setFormData(prev => ({ ...prev, photo: photoData }));
         stopCamera();
+        setShowCameraSelection(false);
       }
+    }
+  };
+
+  const handleCameraChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedIndex = parseInt(e.target.value);
+    if (!isNaN(selectedIndex) && selectedIndex >= 0 && selectedIndex < availableCameras.length) {
+      await startCameraWithDevice(selectedIndex);
     }
   };
 
@@ -80,6 +137,7 @@ export default function RequestForm({ isOpen, onClose }: RequestFormProps) {
   useEffect(() => {
     if (!isOpen) {
       stopCamera();
+      setShowCameraSelection(false);
     }
   }, [isOpen]);
 
@@ -119,6 +177,36 @@ export default function RequestForm({ isOpen, onClose }: RequestFormProps) {
             </div>
 
             <div className="space-y-4">
+              {/* Camera Selection */}
+              {showCameraSelection && (
+                <div className="p-4 bg-gray-50 rounded-lg border-2 border-pink-400">
+                  <label htmlFor="cameraSelect" className="block text-sm font-medium text-gray-700 mb-2">
+                    Select Camera
+                  </label>
+                  <select
+                    id="cameraSelect"
+                    value={selectedCameraIndex}
+                    onChange={handleCameraChange}
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-400 focus:ring-pink-400 mb-2"
+                  >
+                    {availableCameras.map((camera, index) => (
+                      <option key={camera.deviceId} value={index}>
+                        {camera.label || `Camera ${index + 1}`}
+                      </option>
+                    ))}
+                  </select>
+                  {availableCameras.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={switchCamera}
+                      className="py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-pink-400 hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-400"
+                    >
+                      Switch Camera
+                    </button>
+                  )}
+                </div>
+              )}
+
               <video
                 ref={videoRef}
                 autoPlay
@@ -148,7 +236,10 @@ export default function RequestForm({ isOpen, onClose }: RequestFormProps) {
                   <img src={formData.photo} alt="Preview" className="w-full rounded-lg" />
                   <button
                     type="button"
-                    onClick={() => setFormData(prev => ({ ...prev, photo: '' }))}
+                    onClick={() => {
+                      setFormData(prev => ({ ...prev, photo: '' }));
+                      setShowCameraSelection(availableCameras.length > 1);
+                    }}
                     className="absolute top-2 right-2 bg-white bg-opacity-75 rounded-full p-2 hover:bg-opacity-100"
                   >
                     <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

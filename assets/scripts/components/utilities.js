@@ -22,12 +22,16 @@ document.querySelector('.too--form--close')?.addEventListener('click', function(
   const capturePhotoBtn = document.getElementById('capturePhoto');
   const retakePhotoBtn = document.getElementById('retakePhoto');
   const photoPreview = document.getElementById('photoPreview');
+  const cameraSelection = document.getElementById('cameraSelection');
+  const switchCameraBtn = document.getElementById('switchCamera');
   
   if (startCameraBtn) startCameraBtn.style.display = 'inline-block';
   if (capturePhotoBtn) capturePhotoBtn.style.display = 'none';
   if (retakePhotoBtn) retakePhotoBtn.style.display = 'none';
   if (photoPreview) photoPreview.style.display = 'none';
   if (video) video.style.display = 'none';
+  if (cameraSelection) cameraSelection.style.display = 'none';
+  if (switchCameraBtn) switchCameraBtn.style.display = 'none';
   
   document.body.classList.remove('is-showing-form');
 });

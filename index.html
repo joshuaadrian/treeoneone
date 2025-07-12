@@ -191,6 +191,15 @@
 						<label for="photo">
 							<span>Photo</span>
 							<div class="photo-capture">
+								<div class="camera-selection" id="cameraSelection" style="display: none;">
+									<label for="cameraSelect">
+										<span>Select Camera</span>
+										<select id="cameraSelect" class="camera-select">
+											<option value="">Loading cameras...</option>
+										</select>
+									</label>
+									<button type="button" id="switchCamera" class="camera-button" style="display: none;"><span class="">Switch Camera</span></button>
+								</div>
 								<video id="video" autoplay playsinline style="display: none;"></video>
 								<canvas id="canvas" style="display: none;"></canvas>
 								<img id="photoPreview" style="max-width: 100%; display: none;">
